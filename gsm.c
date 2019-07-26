@@ -20,7 +20,11 @@ void delay(unsigned int count)
 {
 	unsigned int i,j;
 	for(i=0;i<count;i++)
-			for(j=0;j<1275;j++);
+	{
+		for(j=0;j<1275;j++)
+		{
+		}
+	}
 }
 void INIT_UART()
 {
@@ -28,7 +32,6 @@ PINSEL0=0x05;
 U0LCR=0x83;
 U0DLL=135;		  
 U0DLM=1;
-
 U0LCR&=0x0F;
 }
 
@@ -45,7 +48,7 @@ while(*address !=0x00)
 {
 U0WRITE(*address);
 address++;
-   
+  
 }
 
 }
@@ -57,11 +60,7 @@ char receive_data (void)
  
 }
 
-
-
-
-
-  int main()
+int main()
   {
 	 PLL_INIT();
 	 INIT_UART();
