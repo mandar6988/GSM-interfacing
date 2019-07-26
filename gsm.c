@@ -1,22 +1,22 @@
 #include <LPC21xx.H> 
 
 
-void PLL_INIT()
+void PLL_INIT()// initialise PLL clock
 {
- PLLCON = 0x01;   
- PLLCFG = 0x24;  
- PLLFEED = 0xAA;  
- PLLFEED = 0x55;
+ PLLCON = 0x01;   // Enable PLL
+ PLLCFG = 0x24;  // Configure to desired clock rate
+ PLLFEED = 0xAA;  //feed Sequence
+ PLLFEED = 0x55;  //feed sequence
  
- while(!(PLLSTAT & 0x00000400)); 
+ while(!(PLLSTAT & 0x00000400)); // wailt to lock PLL
  
- PLLCON = 0x03;   
- PLLFEED = 0xAA; 
- PLLFEED = 0x55;
- VPBDIV = 0x01; 
+ PLLCON = 0x03;   // Connect PLL
+ PLLFEED = 0xAA; //feed sequence
+ PLLFEED = 0x55; //feed sequence
+ VPBDIV = 0x01; // PCLK=CCLK
 }
 
-void delay(unsigned int count)
+void delay(unsigned int count) // function to generate delay
 {
 	unsigned int i,j;
 	for(i=0;i<count;i++)
@@ -26,7 +26,7 @@ void delay(unsigned int count)
 		}
 	}
 }
-void INIT_UART()
+void INIT_UART()// function to initialse UART communication
 {
 PINSEL0=0x05;
 U0LCR=0x83;
