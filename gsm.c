@@ -69,9 +69,9 @@ int main()
 	 delay(3000);
 	 transmit("AT+CMGF=1\r\n");
 	 delay(500);
-	 transmit("AT+CMGS=\"1234567890\"\r\n");
+	 transmit("AT+CMGS=\"1234567890\"\r\n");// mobile number of next person replace with 1234567890
 	 delay(500);
-	 transmit("GSM INterfacing");
+	 transmit("GSM INterfacing");// text to be transmited to next person
 	 delay(500);
 	 U0WRITE(0x1A);
 	 while(1);
